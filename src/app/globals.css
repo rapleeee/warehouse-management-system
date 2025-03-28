@@ -24,3 +24,28 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.progress-bar {
+  transition: width 0.3s ease-in-out;
+}
+
+.table-bordered {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.table-bordered th, 
+.table-bordered td {
+  border: 1px solid #626060;
+  padding: 8px;
+  text-align: left;
+}
+
+.table-bordered thead {
+  background-color: #2f2f2f;
+  font-weight: bold;
+}
+
+.table-bordered tbody tr:hover {
+  background-color: #353535;
+}
