@@ -1,13 +1,6 @@
 import React from 'react';
 
-const DashboardCard = ({ 
-    icon, 
-    title, 
-    value, 
-    percentage, 
-    bgColor = 'bg-blue-500', 
-    textColor = 'text-blue-600' 
-}:any) => {
+const DashboardCard = ({ icon, title, value, percentage, bgColor = 'bg-blue-500', textColor = 'text-blue-600'}: {icon: React.ReactNode, title: string, value: number, percentage: number, bgColor?: string, textColor?: string}) => {
     return (
         <div className="bg-neutral-800 shadow-md rounded-lg p-6 flex items-center">
             <div className={`${bgColor} text-white p-4 rounded-full mr-4`}>

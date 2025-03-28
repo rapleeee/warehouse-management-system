@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import { FaCheck, FaBarcode } from "react-icons/fa";
+import {  FaBarcode } from "react-icons/fa";
 
 const BarangKeluar = () => {
     // State untuk daftar barang keluar
