@@ -46,26 +46,26 @@ const SparepartsDashboard = () => {
             title: "Stok Gudang",
             value: sparePartsData.totalWarehouseStock,
             percentage: 25,
-            bgColor: "bg-blue-500 dark:bg-blue-700",
+            bgColor: "bg-blue-500 dark:bg-[#1e3a8a]",
             textColor: "text-blue-600 dark:text-blue-300"
         }
     ];
 
     const [categoryOutData] = useState([
-        { category: "Mesin Lokomotif", quantity: 75, percentage: 42 },
-        { category: "Gerbong", quantity: 45, percentage: 25 },
-        { category: "Sistem Rem", quantity: 30, percentage: 17 },
-        { category: "Elektrik", quantity: 30, percentage: 16 }
+        { category: "Genta Elektrik", quantity: 75, percentage: 42 },
+        { category: "Radio Lokomotif", quantity: 45, percentage: 25 },
+        { category: "Axle Counter", quantity: 30, percentage: 17 },
+        { category: "Interlocking", quantity: 30, percentage: 16 }
     ]);
 
     const [requestData] = useState([
-        { requestId: "REQ-001", departemen: "Divisi Mesin", kategori: "Komponen Lokomotif", status: "Menunggu Persetujuan", rfidCode: "RFID-LOK-001" },
-        { requestId: "REQ-002", departemen: "Divisi Gerbong", kategori: "Komponen Gerbong", status: "Diproses", rfidCode: "RFID-GRB-002" },
-        { requestId: "REQ-003", departemen: "Divisi Elektrik", kategori: "Komponen Elektrik", status: "Menunggu Konfirmasi", rfidCode: "RFID-ELK-003" }
+        { requestId: "REQ-001", departemen: "Daop 1", kategori: "Genta Elektrik", status: "Menunggu Persetujuan", rfidCode: "RFID-LOK-001" },
+        { requestId: "REQ-002", departemen: "Daop 8", kategori: "Radio Lokomotif", status: "Diproses", rfidCode: "RFID-GRB-002" },
+        { requestId: "REQ-003", departemen: "Divre IV", kategori: "Radio Lokomotif", status: "Menunggu Konfirmasi", rfidCode: "RFID-ELK-003" }
     ]);
 
     return (
-        <div className="p-12 bg-neutral-100 dark:bg-neutral-900 min-h-screen dark:text-white">
+        <div className="p-12 min-h-screen dark:text-white">
             <div className="grid grid-cols-1 sm:grid-cols-4 gap-6 mb-6">
                 {dashboardCards.map((card, index) => (
                     <DashboardCard 
@@ -88,7 +88,7 @@ const SparepartsDashboard = () => {
                             <tr className="text-left">
                                 <th className="py-2">No</th>
                                 <th className="py-2">Request ID</th>
-                                <th className="py-2">Departemen</th>
+                                <th className="py-2">Daerah</th>
                                 <th className="py-2">Kategori</th>
                                 <th className="py-2">Status</th>
                                 <th className="py-2">RFID/Kode Barang</th>
@@ -120,7 +120,6 @@ const SparepartsDashboard = () => {
                     </table>
                 </div>
 
-                {/* Kategori Barang Keluar */}
                 <div className="bg-white dark:bg-neutral-800 shadow-md rounded-lg p-6">
                     <h3 className="text-lg font-semibold mb-4">Kategori Barang Keluar</h3>
                     {categoryOutData.map((category) => (
@@ -131,7 +130,7 @@ const SparepartsDashboard = () => {
                             </div>
                             <div className="bg-gray-200 dark:bg-gray-700 rounded-full h-2">
                                 <div 
-                                    className="bg-blue-500 dark:bg-blue-400 rounded-full h-2 progress-bar"
+                                    className="bg-[#012E5F] dark:bg-[#012E5F] rounded-full h-2 progress-bar"
                                     style={{ width: `${category.percentage}%` }}
                                 ></div>
                             </div>

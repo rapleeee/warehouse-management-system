@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React, { useEffect, useState } from "react";
 import SidebarItem from "@/components/SidebarItem";
 import {
@@ -6,49 +6,48 @@ import {
     FaChartBar,
     FaClipboardList,
     FaWarehouse,
-    FaUserCircle,
     FaHistory,
     FaUsers,
     FaCog,
     FaFileInvoice,
     FaShoppingCart,
+    FaChevronDown,
+    FaChevronUp,
+    FaBoxOpen, 
 } from "react-icons/fa";
 import { MdDashboard } from "react-icons/md";
 import { BsCalendar3 } from "react-icons/bs";
 
 const Sidebar = () => {
     const [isOpen, setIsOpen] = useState(true);
+    const [isDropdownOpen, setIsDropdownOpen] = useState(false);
     const [currentTime, setCurrentTime] = useState<string | null>(null);
     const [currentDate, setCurrentDate] = useState<string | null>(null);
 
     useEffect(() => {
         const updateClock = () => {
             const now = new Date();
-
-            // Format tanggal: "Jumat, 28 Maret 2025"
             const formattedDate = new Intl.DateTimeFormat("id-ID", {
                 weekday: "long",
                 day: "numeric",
                 month: "long",
                 year: "numeric",
             }).format(now);
-
-            // Format waktu: "HH:mm:ss"
             const formattedTime = new Intl.DateTimeFormat("id-ID", {
                 hour: "2-digit",
                 minute: "2-digit",
                 second: "2-digit",
-                hour12: false, // Gunakan format 24 jam
+                hour12: false,
             }).format(now);
 
             setCurrentDate(formattedDate);
             setCurrentTime(formattedTime);
         };
 
-        updateClock(); // Jalankan pertama kali
-        const timer = setInterval(updateClock, 1000); // Update setiap detik
+        updateClock();
+        const timer = setInterval(updateClock, 1000);
 
-        return () => clearInterval(timer); // Bersihkan interval saat komponen di-unmount
+        return () => clearInterval(timer);
     }, []);
 
     return (
@@ -71,11 +70,29 @@ const Sidebar = () => {
                     </button>
                 </div>
 
-                <ul className={`space-y-4 p-4 ${isOpen ? "block" : "flex flex-col items-center"}`}>
+                <ul className={`space-y-2 p-4 ${isOpen ? "block" : "flex flex-col items-center"}`}>
                     <SidebarItem icon={<MdDashboard />} text="Dashboard" isOpen={isOpen} href="/" />
-                    <SidebarItem icon={<FaShoppingCart />} text="Request Barang" isOpen={isOpen} href="/RequestBarang" />
-                    <SidebarItem icon={<FaClipboardList />} text="Barang Keluar" isOpen={isOpen} href="/BarangKeluar" />
-                    <SidebarItem icon={<FaWarehouse />} text="Stock Barang" isOpen={isOpen} href="/StockBarang" />
+                    <li className="relative">
+                        <button
+                            onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                            className="flex items-center justify-between w-full px-4 py-2  hover:bg-neutral-600 transition-all rounded-md"
+                        >
+                            <span className="flex items-center gap-5">
+                                <FaWarehouse />
+                                {isOpen && <span>Spare Parts</span>}
+                            </span>
+                            {isOpen && (isDropdownOpen ? <FaChevronUp /> : <FaChevronDown />)}
+                        </button>
+
+                        {isDropdownOpen && (
+                            <div className="mt-1 space-y-1 bg-neutral-700 p-2 rounded-md ml-2 border-l-4 border-neutral-500">
+                                <SidebarItem icon={<FaShoppingCart />} text="Request Barang" isOpen={isOpen} href="/RequestBarang" />
+                                <SidebarItem icon={<FaClipboardList />} text="Barang Keluar" isOpen={isOpen} href="/BarangKeluar" />
+                                <SidebarItem icon={<FaBoxOpen />} text="Stok Barang" isOpen={isOpen} href="/StockBarang" />
+                            </div>
+                        )}
+                    </li>
+
                     <SidebarItem icon={<FaFileInvoice />} text="Supplier Management" isOpen={isOpen} href="/Supplier" />
                     <SidebarItem icon={<FaHistory />} text="History Transaksi" isOpen={isOpen} href="/History" />
                     <SidebarItem icon={<FaUsers />} text="User Management" isOpen={isOpen} href="/User" />
@@ -94,16 +111,15 @@ const Sidebar = () => {
                 <input
                     type="text"
                     placeholder="Search..."
-                    className="bg-neutral-700 text-white px-4 py-2 rounded-md hidden md:block"
+                    className="bg-neutral-700 text-white px-4 py-2 ml-8 rounded-md hidden md:block"
                 />
 
                 <div className="flex items-center gap-4">
-                    <div className="hidden md:flex gap-2">
-                        <BsCalendar3  className="text-xl text-neutral-200" />
-                        {currentDate ? <span className="font-medium">{currentDate}</span> : <span>Loading...</span>}
-                        <span className="ml-4">{currentTime}</span>
+                    <div className="flex gap-2">
+                        <BsCalendar3 className="text-xl text-neutral-200" />
+                        {currentDate ? <span className="font-medium hidden md:inline">{currentDate}</span> : <span>Loading...</span>}
+                        <span className="ml-4 hidden md:inline">{currentTime}</span>
                     </div>
-                    <FaUserCircle className="text-2xl" />
                 </div>
             </div>
         </div>
