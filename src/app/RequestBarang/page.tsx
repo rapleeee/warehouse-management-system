@@ -1,6 +1,5 @@
 "use client";
 import React, { useState } from "react";
-import { FaPlus } from "react-icons/fa";
 
 const RequestBarang = () => {
     // Data Departemen dan Posisi untuk Dropdown
