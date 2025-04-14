@@ -93,10 +93,10 @@ const Sidebar = () => {
                         )}
                     </li>
 
-                    <SidebarItem icon={<FaFileInvoice />} text="Supplier Management" isOpen={isOpen} href="/Supplier" />
+                    <SidebarItem icon={<FaFileInvoice />} text="Supplier Management" isOpen={isOpen} href="/SupplierManagement" />
                     <SidebarItem icon={<FaHistory />} text="History Transaksi" isOpen={isOpen} href="/History" />
                     <SidebarItem icon={<FaUsers />} text="User Management" isOpen={isOpen} href="/User" />
-                    <SidebarItem icon={<FaChartBar />} text="Reports" isOpen={isOpen} href="/Reports" />
+                    <SidebarItem icon={<FaChartBar />} text="Reports" isOpen={isOpen} href="/Laporan" />
                     <SidebarItem icon={<FaCog />} text="Settings" isOpen={isOpen} href="/Settings" />
                 </ul>
             </div>

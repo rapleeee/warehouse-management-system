@@ -1,42 +1,47 @@
 "use client";
 import React, { useState } from "react";
-import {  FaBarcode } from "react-icons/fa";
+import { FaBarcode } from "react-icons/fa";
 
 const BarangKeluar = () => {
-    // State untuk daftar barang keluar
     const [barangKeluar, setBarangKeluar] = useState([
-        { id: 1, nama: "Oli Mesin", jumlah: 5, pengeluar: "", tanggalKeluar: "", status: "Menunggu Scan", rfid: "" },
-        { id: 2, nama: "Busi Motor", jumlah: 10, pengeluar: "", tanggalKeluar: "", status: "Menunggu Scan", rfid: "" },
+        { id: 1, nama: "Genta Elektrik", jumlah: 75, pengeluar: "", tanggalKeluar: "", status: "Menunggu Scan", rfid: "", rfidInput: "" },
+        { id: 2, nama: "Radio Lokomotif", jumlah: 45, pengeluar: "", tanggalKeluar: "", status: "Menunggu Scan", rfid: "", rfidInput: "" },
+        { id: 3, nama: "Axle Counter", jumlah: 30, pengeluar: "", tanggalKeluar: "", status: "Menunggu Scan", rfid: "", rfidInput: "" },
+        { id: 4, nama: "Interlocking", jumlah: 30, pengeluar: "", tanggalKeluar: "", status: "Menunggu Scan", rfid: "", rfidInput: "" },
     ]);
 
-    // State untuk RFID input
-    const [rfidInput, setRfidInput] = useState("");
     const [pengeluar, setPengeluar] = useState("");
 
-    // Handle scan RFID
     const handleScanRFID = (id: number) => {
-        if (!rfidInput || !pengeluar) {
-            alert("Masukkan RFID dan nama pengeluar!");
-            return;
-        }
-
-        setBarangKeluar(
-            barangKeluar.map((item) =>
-                item.id === id
-                    ? {
-                        ...item,
-                        status: "Dikeluarkan",
-                        rfid: rfidInput,
-                        pengeluar: pengeluar,
-                        tanggalKeluar: new Date().toLocaleString(),
+        setBarangKeluar((prev) =>
+            prev.map((item) => {
+                if (item.id === id) {
+                    if (!item.rfidInput || !pengeluar) {
+                        alert("Masukkan RFID dan nama pengeluar!");
+                        return item;
                     }
-                    : item
+
+                    return {
+                        ...item,
+                        rfid: item.rfidInput,
+                        status: "Dikeluarkan",
+                        pengeluar,
+                        tanggalKeluar: new Date().toLocaleString(),
+                        rfidInput: ""
+                    };
+                }
+                return item;
+            })
+        );
+        setPengeluar("");
+    };
+
+    const handleRfidInputChange = (id: number, value: string) => {
+        setBarangKeluar((prev) =>
+            prev.map((item) =>
+                item.id === id ? { ...item, rfidInput: value } : item
             )
         );
-
-        // Reset input RFID dan Pengeluar
-        setRfidInput("");
-        setPengeluar("");
     };
 
     return (
@@ -51,7 +56,7 @@ const BarangKeluar = () => {
                     className="p-2 rounded-md bg-neutral-800 text-white w-full border border-gray-600"
                 />
             </div>
-            {/* Tabel Barang Keluar */}
+
             <div className="overflow-x-auto">
                 <table className="w-full border-collapse border border-gray-700 bg-neutral-900 rounded-lg text-gray-300">
                     <thead className="bg-neutral-800 text-gray-200 uppercase">
@@ -83,8 +88,8 @@ const BarangKeluar = () => {
                                     <div className="flex items-center gap-2">
                                         <input
                                             type="text"
-                                            value={rfidInput}
-                                            onChange={(e) => setRfidInput(e.target.value)}
+                                            value={item.rfidInput}
+                                            onChange={(e) => handleRfidInputChange(item.id, e.target.value)}
                                             placeholder="Scan RFID"
                                             className="p-1 rounded-md bg-[#D4EBF8] text-neutral-800 border border-gray-600 w-32"
                                         />
