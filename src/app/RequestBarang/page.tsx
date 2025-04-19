@@ -3,13 +3,13 @@ import React, { useState } from "react";
 
 const RequestBarang = () => {
     // Data Departemen dan Posisi untuk Dropdown
-    const departemenOptions = ["Divisi Mesin", "Divisi Elektrik", "Divisi Gerbong"];
+    const departemenOptions = ["Daop 1", "Daop 8", "Divre IV"];
     const posisiOptions = ["Staff", "Supervisor", "Manager"];
 
     // State untuk daftar request barang
     const [requests, setRequests] = useState([
-        { id: 1, nama: "Oli Mesin", departemen: "Divisi Mesin", pengaju: "Budi", posisi: "Staff", jumlah: 5, status: "Pending" },
-        { id: 2, nama: "Busi Motor", departemen: "Divisi Elektrik", pengaju: "Ani", posisi: "Supervisor", jumlah: 10, status: "Approved" },
+        { id: 1, nama: "Genta Elektrik", departemen: "Divre IV", pengaju: "Budi", posisi: "Staff", jumlah: 5, status: "Pending" },
+        { id: 2, nama: "Radio Lokomotif", departemen: "Daop 1", pengaju: "Ani", posisi: "Supervisor", jumlah: 10, status: "Approved" },
     ]);
 
     // State untuk input form
@@ -60,7 +60,7 @@ const RequestBarang = () => {
                         required
                         aria-label="Departemen"
                     >
-                        <option value="">Pilih Departemen</option>
+                        <option value="">Pilih Daerah</option>
                         {departemenOptions.map((dep, index) => (
                             <option key={index} value={dep}>{dep}</option>
                         ))}
@@ -111,7 +111,7 @@ const RequestBarang = () => {
                     <tr>
                         <th className="p-3 text-left">No</th>
                         <th className="p-3 text-left">Nama Barang</th>
-                        <th className="p-3 text-left">Departemen</th>
+                        <th className="p-3 text-left">Daerah</th>
                         <th className="p-3 text-left">Pengaju</th>
                         <th className="p-3 text-left">Posisi</th>
                         <th className="p-3 text-left">Jumlah</th>
