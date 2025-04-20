@@ -8,8 +8,8 @@ const RequestBarang = () => {
 
     // State untuk daftar request barang
     const [requests, setRequests] = useState([
-        { id: 1, nama: "Genta Elektrik", departemen: "Divre IV", pengaju: "Budi", posisi: "Staff", jumlah: 5, status: "Pending" },
-        { id: 2, nama: "Radio Lokomotif", departemen: "Daop 1", pengaju: "Ani", posisi: "Supervisor", jumlah: 10, status: "Approved" },
+        { id: 1, nama: "Grounding", departemen: "Divre IV", pengaju: "Budi", posisi: "Staff", jumlah: 5, status: "Pending" },
+        { id: 2, nama: "Relay Proteksi AC", departemen: "Daop 1", pengaju: "Ani", posisi: "Supervisor", jumlah: 10, status: "Approved" },
     ]);
 
     // State untuk input form

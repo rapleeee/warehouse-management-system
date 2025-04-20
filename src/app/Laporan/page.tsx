@@ -7,9 +7,9 @@ const Laporan = () => {
 
     // Dummy data sementara
     const dataLaporan = [
-        { id: 1, nama: "Genta Elektrik", jumlah: 20, pengeluar: "Budi", tanggal: "2025-04-12" },
-        { id: 2, nama: "Axle Counter", jumlah: 10, pengeluar: "Rani", tanggal: "2025-04-13" },
-        { id: 3, nama: "Radio Lokomotif", jumlah: 15, pengeluar: "Budi", tanggal: "2025-04-14" },
+        { id: 1, nama: "Panel LBD (Linked Breaking Device)", jumlah: 20, pengeluar: "Budi", tanggal: "2025-04-12" },
+        { id: 2, nama: "Modul Komunikasi Data", jumlah: 10, pengeluar: "Rani", tanggal: "2025-04-13" },
+        { id: 3, nama: "Interlocking Mekanik", jumlah: 15, pengeluar: "Budi", tanggal: "2025-04-14" },
     ];
 
     const dataFilter = dataLaporan.filter(item => {

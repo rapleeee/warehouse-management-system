@@ -52,16 +52,16 @@ const SparepartsDashboard = () => {
     ];
 
     const [categoryOutData] = useState([
-        { category: "Genta Elektrik", quantity: 75, percentage: 42 },
-        { category: "Radio Lokomotif", quantity: 45, percentage: 25 },
-        { category: "Axle Counter", quantity: 30, percentage: 17 },
-        { category: "Interlocking", quantity: 30, percentage: 16 }
+        { category: "Bahan Engineering Mobis", quantity: 75, percentage: 42 },
+        { category: "Panel LBD (Linked Breaking Device)", quantity: 45, percentage: 25 },
+        { category: "Kawat OHGW (Overhead Ground Wire)", quantity: 30, percentage: 17 },
+        { category: "UPS (Uninterruptible Power Supply)", quantity: 30, percentage: 16 }
     ]);
 
     const [requestData] = useState([
-        { requestId: "REQ-001", departemen: "Daop 1", kategori: "Genta Elektrik", status: "Menunggu Persetujuan", rfidCode: "RFID-LOK-001" },
-        { requestId: "REQ-002", departemen: "Daop 8", kategori: "Radio Lokomotif", status: "Diproses", rfidCode: "RFID-GRB-002" },
-        { requestId: "REQ-003", departemen: "Divre IV", kategori: "Radio Lokomotif", status: "Menunggu Konfirmasi", rfidCode: "RFID-ELK-003" }
+        { requestId: "REQ-001", departemen: "Daop 1", kategori: "Perangkat Proteksi Arus", status: "Menunggu Persetujuan", rfidCode: "RFID-LOK-001" },
+        { requestId: "REQ-002", departemen: "Daop 8", kategori: "Sistem Remote Gardu Traksi", status: "Diproses", rfidCode: "RFID-GRB-002" },
+        { requestId: "REQ-003", departemen: "Divre IV", kategori: "Flashing Unit", status: "Menunggu Konfirmasi", rfidCode: "RFID-ELK-003" }
     ]);
 
     return (
