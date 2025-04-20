@@ -4,10 +4,9 @@ import { FaBarcode } from "react-icons/fa";
 
 const BarangKeluar = () => {
     const [barangKeluar, setBarangKeluar] = useState([
-        { id: 1, nama: "Interlocking Mekanik", jumlah: 75, pengeluar: "", tanggalKeluar: "", status: "Menunggu Scan", rfid: "", rfidInput: "" },
-        { id: 2, nama: "Grounding", jumlah: 45, pengeluar: "", tanggalKeluar: "", status: "Menunggu Scan", rfid: "", rfidInput: "" },
-        { id: 3, nama: "Suku Cadang Gardu Traksi", jumlah: 30, pengeluar: "", tanggalKeluar: "", status: "Menunggu Scan", rfid: "", rfidInput: "" },
-        { id: 4, nama: "Kabel Negatif", jumlah: 30, pengeluar: "", tanggalKeluar: "", status: "Menunggu Scan", rfid: "", rfidInput: "" },
+        { id: 1, nama: "LED Sinyal Langsir Hijau", jumlah: 75, pengeluar: "", tanggalKeluar: "", status: "Menunggu Scan", rfid: "", rfidInput: "" },
+        { id: 2, nama: "Radio Lokomotif", jumlah: 45, pengeluar: "", tanggalKeluar: "", status: "Menunggu Scan", rfid: "", rfidInput: "" },
+        { id: 3, nama: "Way Station", jumlah: 30, pengeluar: "", tanggalKeluar: "", status: "Menunggu Scan", rfid: "", rfidInput: "" },
     ]);
 
     const [pengeluar, setPengeluar] = useState("");
